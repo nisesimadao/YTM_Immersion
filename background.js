@@ -250,11 +250,19 @@ const fetchCandidatesFromUrl = (url) => {
 
   return fetch(url)
     .then(async (r) => {
+
+      if (!r.ok) {
+        if (r.status === 404) {
+          return { candidates: [], hasSelectCandidates: false, config: null, requests: [] };
+        }
+        throw new Error(r.statusText || `HTTP Error ${r.status}`);
+      }
+
       let json;
       try {
         json = await r.json();
       } catch (e) {
-        throw new Error(r.statusText || 'Invalid JSON');
+        throw new Error('Invalid JSON');
       }
 
       const res = json.response || json;
@@ -271,7 +279,8 @@ const fetchCandidatesFromUrl = (url) => {
       };
     })
     .catch(err => {
-      console.error('[BG] candidates error:', err);
+
+      console.warn('[BG] candidates fetch note:', err.message);
       return { candidates: [], hasSelectCandidates: false, config: null, requests: [] };
     });
 };
