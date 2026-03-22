@@ -31,6 +31,25 @@
         "https://music.youtube.com/*"
       ],
       "js": [
+        "src/js/modules/core/constants.js",
+        "src/js/modules/core/config.js",
+        "src/js/modules/core/state.js",
+        "src/js/modules/services/storage.js",
+        "src/js/modules/services/i18n.js",
+        "src/js/modules/features/progressHandle.js",
+        "src/js/modules/features/replayManager.js",
+        "src/js/modules/features/queueManager.js",
+        "src/js/modules/features/pipManager.js",
+        "src/js/modules/services/cloudSync.js",
+        "src/js/modules/lyrics/lyricsParser.js",
+        "src/js/modules/services/translation.js",
+        "src/js/modules/ui/uiRendering.js",
+        "src/js/modules/ui/uiManager.js",
+        "src/js/modules/lyrics/lyricsLoader.js",
+        "src/js/modules/core/events.js",
+        "src/js/modules/features/discordPresence.js",
+        "src/js/modules/features/share.js",
+        "src/js/modules/features/movieMode.js",
         "src/js/content.js"
       ],
       "css": [
